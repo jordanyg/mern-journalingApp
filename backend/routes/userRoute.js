@@ -7,7 +7,7 @@ const route = express.Router()
 route.post('/register' , createUser)
 route.post('/login' , loginUser)
 route.post('/logout',protect , logout)
-route.put('/' ,protect, updateUser)
-route.delete('/',protect , deleteUser)
+route.put('/update' ,protect, updateUser)
+route.delete('/delete',protect , deleteUser)
 
 export default route
