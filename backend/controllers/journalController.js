@@ -36,24 +36,28 @@ const getEntriesByCategory = asyncHandler(async (req, res) => {
   res.status(200).json(entries)
 })
 
-const updateEntry = asyncHandler(async(req,res)=>{
-    const {content} = req.body
+const updateEntry = asyncHandler(async (req, res) => {
+  const { content } = req.body
 
+  const entry = await Journal.findById(req.params.id)
 
-        const entry = await Journal.findById(req.params.id)
-    if(!entry){
-       return res.status(400).json({message : 'no such entry'})
-    }
+  if (!entry) {
+    return res.status(404).json({ message: 'No such entry' })
+  }
 
-    if(entry.user.toString() !== req.user.id){
-       return res.status(401).json({message : 'unauthorized'})
-    }
+  if (entry.user.toString() !== req.user.id) {
+    return res.status(401).json({ message: 'Unauthorized' })
+  }
 
+  if (!content || !content.trim()) {
+    return res.status(400).json({ message: 'Content cannot be empty' })
+  }
 
-    entry.content = content || entry.content
+  entry.content = content
 
-    const updatedEntry = await entry.save()
-    res.status(200).json(updatedEntry)
+  const updatedEntry = await entry.save()
+
+  res.status(200).json(updatedEntry)
 })
 
 const deleteEntry = asyncHandler(async(req,res)=>{

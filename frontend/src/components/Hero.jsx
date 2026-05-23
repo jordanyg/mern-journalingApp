@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -46,13 +47,13 @@ const Hero = () => {
 
       {/* Buttons */}
       <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
-        <button className="rounded-2xl bg-gray-900 px-8 py-4 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-1 hover:bg-gray-800">
+        <Link to={'/login'} className="rounded-2xl bg-gray-900 px-8 py-4 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-1 hover:bg-gray-800">
           Login
-        </button>
+        </Link>
 
-        <button className="rounded-2xl border border-gray-300 bg-white px-8 py-4 text-sm font-semibold text-gray-700 transition hover:border-gray-900 hover:text-gray-900">
+        <Link to={'/login'} className="rounded-2xl border border-gray-300 bg-white px-8 py-4 text-sm font-semibold text-gray-700 transition hover:border-gray-900 hover:text-gray-900">
           Register
-        </button>
+        </Link>
       </div>
     </div>
 

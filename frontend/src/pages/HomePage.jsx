@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
+import { useNavigate } from "react-router-dom";
+import { useGetAllQuery } from "../slices/journalApiSlice";
+import { useGetByCategoryQuery } from "../slices/journalApiSlice";
+
 const categories = [
   { name: "clarity", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644" },
   { name: "mindset", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773" },
@@ -11,13 +15,19 @@ const categories = [
   { name: "anxiety", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" },
   { name: "direction", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" },
   { name: "decision", image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d" },
-  { name: "lifeDirection", image: "https://images.unsplash.com/photo-1520975928316-56b6d8a2b3e4" },
+  { name: "lifeDirection", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" },
 ];
 
    
 
 const HomePage = () => {
     const {userInfo} = useSelector((state)=>state.auth)
+
+    // const dispatch = useDispatch()
+    // const navigate = useNavigate()
+
+    const { data : entries = []} = useGetAllQuery()
+
   return (userInfo ? (<div className="min-h-screen bg-[#f8f6f2] px-6 py-10">
 
       {/* CATEGORY GRID */}
@@ -54,15 +64,15 @@ const HomePage = () => {
           ))}
         </div>
 
-        {/* RECENT JOURNALS */}
+        {/* RECENT entries */}
         <div className="mt-16">
           <h2 className="mb-6 text-2xl font-bold text-gray-900">
-            Recent Journals
+            Recent entries
           </h2>
 
           
             <div className="space-y-4">
-              {journals.slice(0, 5).map((j) => (
+              {entries.slice(0, 5).map((j) => (
                 <div
                   key={j._id}
                   className="relative rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md"
@@ -74,9 +84,7 @@ const HomePage = () => {
 
                   {/* CONTENT */}
                   <p className="pr-20 text-gray-700">
-                    {j.content.length > 180
-                      ? j.content.slice(0, 180) + "..."
-                      : j.content}
+                    {j.content}
                   </p>
                 </div>
               ))}
