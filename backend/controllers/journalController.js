@@ -22,6 +22,7 @@ const createEntry = asyncHandler(async(req,res)=>{
 const getEntry = asyncHandler(async(req,res)=>{
     const entries = await Journal.find({user : req.user.id}).sort({ createdAt: -1 })
     res.status(200).json(entries)
+    
 })
 
 

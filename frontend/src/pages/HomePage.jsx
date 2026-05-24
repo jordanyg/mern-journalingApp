@@ -7,15 +7,15 @@ import { useGetAllQuery } from "../slices/journalApiSlice";
 import { useGetByCategoryQuery } from "../slices/journalApiSlice";
 
 const categories = [
-  { name: "clarity", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644" },
+  { name: "clarity", image: "https://media.istockphoto.com/id/1332092432/photo/magnifying-glass-focusing-a-forest.jpg?s=612x612&w=0&k=20&c=BMTiQfV-Mp6MMg-MGYCqbu9kWOsX5Rq6vw3UvXao-m8=" },
   { name: "mindset", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773" },
-  { name: "reflection", image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88" },
+  { name: "reflection", image: "https://miro.medium.com/1*Q9bfz0wD837_Irn20O-ERA.jpeg" },
   { name: "audit", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" },
   { name: "recovery", image: "https://images.unsplash.com/photo-1506784365847-bbad939e9335" },
-  { name: "anxiety", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" },
+  { name: "anxiety", image: "https://static.vecteezy.com/system/resources/previews/036/422/801/non_2x/illustration-of-anxiety-disorder-anxiety-disorder-concept-illustration-vector.jpg" },
   { name: "direction", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" },
   { name: "decision", image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d" },
-  { name: "lifeDirection", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" },
+  { name: "lifeDirection", image: "https://www.shutterstock.com/image-photo/white-yellow-arrows-on-asphalt-600nw-2671217579.jpg" },
 ];
 
    

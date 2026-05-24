@@ -12,7 +12,7 @@ const authSlice = createSlice({
             state.userInfo = action.payload;//action.payload is the user data that comes from backend
             localStorage.setItem('userInfo' , JSON.stringify(action.payload)) // stringify the parsed user info and set it in local storage in order to get the userdata after refresh browser closing ...
         },
-        logout :(state , action)=>{
+        logout :(state )=>{
             state.userInfo = null;
             localStorage.removeItem('userInfo')
         }

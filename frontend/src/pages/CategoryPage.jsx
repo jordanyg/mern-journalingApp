@@ -11,7 +11,7 @@ const CategoryPage = () => {
 
   const [createEntry] = useCreateEntryMutation();
   const [deleteEntry] = useDeleteEntryMutation();
-  const [UpdateEntryMutation] = useUpdateEntryMutation();
+  const [UpdateEntryApi] = useUpdateEntryMutation();
 
   const [content, setContent] = useState("");
   const [editingId, setEditingId] = useState(null);
@@ -46,8 +46,8 @@ const CategoryPage = () => {
 
   const editHandler = async (id) => {
     try {
-      await useUpdateEntryMutation({
-        id : entry._id,
+      await UpdateEntryApi({
+        id ,
         data: {
           content: editText,
         },
